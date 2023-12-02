@@ -1,0 +1,9 @@
+<html>
+	<?php
+		session_start();
+		unset($_SESSION['nickname']);
+		echo("<script> 
+				location.href='list.php';
+				</script>");
+	?>
+</html>
