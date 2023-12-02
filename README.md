@@ -7,4 +7,4 @@ list.php : 게시판
 
 로그아웃 돼있을시 $_SESSION['nickname']은 할당되지 않음 (unset된 상태)
 
-데이터베이스의 이름은 config.php에 저장되어있음
+참조한 데이터베이스의 이름은 config.php에 저장되어있음
