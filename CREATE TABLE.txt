@@ -19,3 +19,12 @@ CREATE TABLE users(
     password varchar(20),
     email varchar(30)
 );
+
+CREATE TABLE reply(
+	article text NOT NULL,
+	writer varchar(20),
+	writedate char(10),
+	num int,
+	UID int unsigned AUTO_INCREMENT,
+	PRIMARY KEY(UID)
+);
