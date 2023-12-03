@@ -1,5 +1,12 @@
 <?php include("./functions.php"); ?>
 <?php
+session_start();
+if(!isset($_SESSION['nickname'])){
+    echo("<script> 
+				window.alert('글쓰기는 로그인 후에 가능합니다.'); 
+				history.go(-1);
+				</script>");
+}
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 ?>
 <html>
@@ -21,27 +28,9 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     <center> 
     <table>
   <tr>
-    <td class="ques_head">글쓴이</td>
-    <td class="input_td">
-      <input type="text" name="name" size="10" maxsize="10">
-    </td>
-  </tr>
-  <tr>
-    <td class="ques_head">e-mail</td>
-    <td class="input_td">
-      <input type="text" name="email" size="40" maxsize="50">
-    </td>
-  </tr>
-  <tr>
     <td class="ques_head">홈페이지</td>
     <td class="input_td">
        <input type="text" name="homepage" size="40" maxsize="50">
-    </td>
-  </tr>
-  <tr>
-    <td class="ques_head">암호</td>
-    <td class="input_td">
-      <input type="password" name="passwd" size="10" maxsize="10">
     </td>
   </tr>
   <tr>

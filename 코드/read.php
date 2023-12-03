@@ -2,6 +2,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="./common_style.css">
   <style>  
+    <?php include("./new_comment.css"); ?>
     .info_table {
       background-color: #CFE1FC;
       border: solid 1pt;
@@ -9,6 +10,13 @@
     .article_table {
       background-color: #EFF8FE;
       border: solid 1pt;
+    }
+    .new-comment{
+        width:1000px;
+        height:100px;
+    }
+    th,td{
+        padding:5px;
     }
   </style>
 </head>
@@ -18,6 +26,7 @@
 <?php
 include("./config.php");
 include("./functions.php");
+
 
 $uid = isset($_GET['uid']) ? (int)$_GET['uid'] : 0;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -68,7 +77,7 @@ $refnum = $row['refnum'];
         <td><?=$article?></td>
       </tr>
     </table>
-    juiijoi
+    
     <table>
       <tr align="right">
         <td><a href="<?=dest_url( "./edit.php", $page, $uid )?>">수정</a>
@@ -77,6 +86,52 @@ $refnum = $row['refnum'];
         <a href="<?=dest_url( "./list.php" , $page )?>">목록</a></td>
       </tr>
     </table>
+    <p style="margin-left:-545px">댓글</p>
+    <table style="margin-top:-0px">
+
+    <tr bgcolor="#D9E5FF">
+        <td width="50" align="center"> 작성자 </td>
+        <td width="470" align="center"> 내용 </td>
+        <td width="100 "align="center"> 작성 날짜 </td>
+        <td width="100"></td>
+    </tr>
+    <?php
+        session_start();
+        $query="SELECT * from reply where num=$uid ORDER BY UID ASC";
+        $result=mysqli_query($con,$query);
+        while ($row=mysqli_fetch_row($result)){ ?>
+            <tr bgcolor="#D9E5FF">
+
+                <td width="50" height="30" align="center"> <?php echo $row[1]; ?> </td>
+                <td width="470"> <?php echo $row[0]; ?> </td>
+                <td align="center"> <?php echo $row[2]; ?> </td>
+                <td align="center"> 
+                <?php if(isset($_SESSION['nickname'])){
+                    if($row[1]==$_SESSION['nickname']){ ?>
+                    <a href="delete_comment.php?num=<?php echo $uid;?>&page=<?php echo $page; ?>&reply_num=<?php echo $row[4];?>?>">삭제</a> 
+                <?php }} ?> </td>
+            </tr>
+            
+        
+        <?php
+        }
+    ?>
+
+    </table>
+    <?php
+    if(isset($_SESSION['nickname'])){ ?>
+        <form action="new_comment.php" method="post" id="new-comment">
+		    <input type="text" name="article"  placeholder="댓글"  >
+            <input type="hidden" name="num" value=<?php echo $uid; ?>>
+            <input type="hidden" name="page" value=<?php echo $page; ?>>
+	        <input type="submit" value="등록" >
+	    </form>
+    <?php }else{ ?>
+        <br> 댓글을 쓰려면 로그인을 해주세요.
+    <?php } ?>
+
+    
+
     </center>
   </body>
 </html>

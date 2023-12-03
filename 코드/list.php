@@ -31,9 +31,9 @@ $total_pages = ceil($total_rows / $rows_page);
 $start_row = $rows_page * ($page - 1);
 
 // 데이터베이스에서 목록 추출
-$query = "SELECT uid, gid, depth, name, subject, writedate, refnum 
+$query = "SELECT uid, depth, name, subject, writedate, refnum 
           FROM board $where 
-          ORDER BY gid DESC, depth ASC 
+          ORDER BY depth ASC 
           LIMIT ?, ?";
 $stmt = $con->prepare($query);
 if ($where) {
