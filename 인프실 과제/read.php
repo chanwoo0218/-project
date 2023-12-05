@@ -43,7 +43,6 @@ $row = $result->fetch_assoc();
 $subject = htmlspecialchars($row['subject']);
 $article = $tag_enable ? $row['article'] : htmlspecialchars($row['article']);
 $article = nl2br($article);
-$email = $row['email'];
 $name = $row['name'];
 $refnum = $row['refnum'];
 ?>
@@ -56,9 +55,6 @@ $refnum = $row['refnum'];
         <td width="510">글쓴이&nbsp;:&nbsp;
 
       <?PHP
-        if( $email )
-          echo( "<a href=\"mailto:$email\">$name</a>" );
-        else
           echo $name;
       ?>
 
@@ -110,7 +106,8 @@ $refnum = $row['refnum'];
                 <td align="center"> 
                 <?php if(isset($_SESSION['nickname'])){
                     if($row[1]==$_SESSION['nickname']){ ?>
-                    <a href="delete_comment.php?num=<?php echo $uid;?>&page=<?php echo $page; ?>&reply_num=<?php echo $row[4];?>?>">삭제</a> 
+                      <a href="edit_comment.php?num=<?php echo $uid;?>&page=<?php echo $page; ?>&reply_num=<?php echo $row[4];?>?>">수정</a> 
+                      <a href="delete_comment.php?num=<?php echo $uid;?>&page=<?php echo $page; ?>&reply_num=<?php echo $row[4];?>?>">삭제</a> 
                 <?php }} ?> </td>
             </tr>
             
