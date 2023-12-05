@@ -131,24 +131,7 @@ $result = $stmt->get_result();
         </td>
       </tr>
     </table>
-    <table>
-      <form name="search_form" method="post" action="./list.php">
-        <tr align="center">
-          <td>
-            <select name="kind">
-              <option value="subject" <? if ($kind == "subject")
-                                        echo (" selected"); ?>>제목</option>
-              <option value="article" <? if ($kind == "article")
-                                        echo (" selected"); ?>>내용</option>
-              <option value="name" <? if ($kind == "name")
-                                      echo ("selected"); ?>>이름</option>
-            </select>
-            <input type="text" name="key" value="<?= $key ?>" size="20">
-            <input type="submit" value="검색">
-          </td>
-        </tr>
-      </form>
-    </table>
+   
   </center>
 </body>
 
