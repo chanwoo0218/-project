@@ -27,12 +27,7 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
   <form name="write_form" method="post" action="write_db.php">
     <center> 
     <table>
-  <tr>
-    <td class="ques_head">홈페이지</td>
-    <td class="input_td">
-       <input type="text" name="homepage" size="40" maxsize="50">
-    </td>
-  </tr>
+
   <tr>
     <td class="ques_head">제목</td>
     <td class="input_td">
