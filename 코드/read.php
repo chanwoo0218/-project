@@ -119,7 +119,8 @@ $refnum = $row['refnum'];
     </table>
     <?php
     if(isset($_SESSION['nickname'])){ ?>
-        <form action="new_comment.php" method="post" id="new-comment">
+
+        <form action="new_comment.php" method="post" id="new-comment" style="margin-top:10px">
 		    <input type="text" name="article"  placeholder="댓글"  >
             <input type="hidden" name="num" value=<?php echo $uid; ?>>
             <input type="hidden" name="page" value=<?php echo $page; ?>>
