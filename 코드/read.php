@@ -62,9 +62,7 @@ $refnum = $row['refnum'];
         else
           echo $name;
 
-        if( $homepage )
-          echo("&nbsp;&nbsp;&nbsp;<a href=\"http://$homepage\">
-            [homepage]</a>" );
+
       ?>
 
         </td>
