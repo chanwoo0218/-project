@@ -1,0 +1,24 @@
+CREATE TABLE board(
+  uid int unsigned AUTO_INCREMENT,
+  name varchar(20) NOT NULL,
+  subject varchar(255) NOT NULL,
+  article text NOT NULL,
+  writedate char(16) NOT NULL,
+  refnum int unsigned DEFAULT 0,
+  PRIMARY KEY (uid)
+);
+CREATE TABLE users(
+    nickname varchar(20) primary key,
+    ID varchar(20),
+    password varchar(20),
+    email varchar(30)
+);
+
+CREATE TABLE reply(
+	article text NOT NULL,
+	writer varchar(20),
+	writedate char(16),
+	num int,
+	UID int unsigned AUTO_INCREMENT,
+	PRIMARY KEY(UID)
+);
