@@ -1,5 +1,6 @@
 CREATE TABLE board(
   uid int unsigned AUTO_INCREMENT,
+  depth varchar(255) DEFAULT 'A',
   name varchar(20) NOT NULL,
   subject varchar(255) NOT NULL,
   article text NOT NULL,
@@ -7,6 +8,7 @@ CREATE TABLE board(
   refnum int unsigned DEFAULT 0,
   PRIMARY KEY (uid)
 );
+
 CREATE TABLE users(
     nickname varchar(20) primary key,
     ID varchar(20),
