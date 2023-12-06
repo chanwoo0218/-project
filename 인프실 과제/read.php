@@ -105,8 +105,7 @@ $refnum = $row['refnum'];
                 <td align="center"> <?php echo $row[2]; ?> </td>
                 <td align="center"> 
                 <?php if(isset($_SESSION['nickname'])){
-                    if($row[1]==$_SESSION['nickname']){ ?>
-                      <a href="edit_comment.php?num=<?php echo $uid;?>&page=<?php echo $page; ?>&reply_num=<?php echo $row[4];?>?>">수정</a> 
+                    if($row[1]==$_SESSION['nickname']){ ?> 
                       <a href="delete_comment.php?num=<?php echo $uid;?>&page=<?php echo $page; ?>&reply_num=<?php echo $row[4];?>?>">삭제</a> 
                 <?php }} ?> </td>
             </tr>
